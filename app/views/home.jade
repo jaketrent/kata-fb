@@ -1,8 +1,12 @@
 extends layouts/index
 
 block content
+  h1 Friend List
+
+  p#output
 
   div#fb-root
+
 
   :coffeescript
     window.testAPI = ->
@@ -12,9 +16,34 @@ block content
 
 
       FB.api '/me/friends', (response) ->
+        map = {}
+
+        addToMap = (friend) ->
+          names = friend.name.split " "
+          for name in names
+            if _.has map, name
+              map[name] += 1
+            else
+              map[name] = 1
+
+        findMaxName = ->
+          max = 1
+          maxName = ""
+          for name, num of map
+            if num > max
+              max = num
+              maxName = name
+          [ maxName, max ]
+
 
         friends = response.data
-        console.log(response)
+
+        addToMap(friend) for friend in friends
+
+        [maxName, max] = findMaxName()
+
+        document.getElementById('output').innerHTML = "Most popular friend name: #{maxName} at #{max} uses"
+
 
   script
     window.fbAsyncInit = function() {
@@ -95,5 +124,4 @@ block content
 
   fb:login-button(show-faces="true", width="200", max-rows="1")
 
-  h1 node-webapp-seed
 

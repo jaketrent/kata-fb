@@ -5,5 +5,8 @@
     "**/.*",
     "node_modules",
     "app/static/js/components"
-  ]
+  ],
+  "dependencies": {
+    "underscore": "~1.5.1"
+  }
 }

@@ -3,6 +3,19 @@ extends layouts/index
 block content
 
   div#fb-root
+
+  :coffeescript
+    window.testAPI = ->
+      console.log('Welcome!  Fetching your information.... ')
+      FB.api '/me', (response) ->
+        console.log('Good to see you, ' + response.name + '.')
+
+
+      FB.api '/me/friends', (response) ->
+
+        friends = response.data
+        console.log(response)
+
   script
     window.fbAsyncInit = function() {
     FB.init({
@@ -55,14 +68,22 @@ block content
 
     // Here we run a very simple test of the Graph API after login is successful.
     // This testAPI() function is only called in those cases.
-    function testAPI() {
-      console.log('Welcome!  Fetching your information.... ');
-      FB.api('/me', function(response) {
-        console.log('Good to see you, ' + response.name + '.');
-      });
+    //- function testAPI() {
+    //-   console.log('Welcome!  Fetching your information.... ');
+    //-   FB.api('/me', function(response) {
+    //-     console.log('Good to see you, ' + response.name + '.');
+    //-   });
 
+    //-   FB.api('/me/friends', function (response) {
 
-    }
+    //-     var friends = response.data;
+
+    //-     console.log(response);
+
+    //-   });
+
+    //- }
+
 
 
   //-

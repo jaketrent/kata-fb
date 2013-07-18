@@ -22,7 +22,8 @@
     "bower": "~0.8.6",
     "underscore": "~1.4.4",
     "debug": "~0.7.2",
-    "mincer": "~0.4.6"
+    "mincer": "~0.4.6",
+    "twilio": "~1.1.4"
   },
   "devDependencies": {
     "supervisor": "~0.5.2",

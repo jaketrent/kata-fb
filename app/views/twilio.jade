@@ -1,0 +1,8 @@
+extends layouts/index
+
+block content
+  h1 Twilio
+  form(method="post", action="/twilio")
+    input(type="text", name="to", placeholder="To")
+    input(type="text", name="message", placeholder="Message")
+    input(type="submit", value="Send SMS")

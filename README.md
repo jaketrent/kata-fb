@@ -1,13 +1,4 @@
-node-webapp-seed
-================
+KATA-FB
+======
 
-## Features
-- Express/connect
-- Jade templates
-- All CoffeeScript
-- Stylus preproc
-- Routes file
-- Bower setup
-- Assets w/ Mincer
-- Server reload w/ Supervisor
-- Mocha/chai test env
+Kata exercise that did a Facebook login and determined the most popular name amonst my friends.  It also sends an SMS via the Twilio API.
